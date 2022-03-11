@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-''' multialign.py: A wrapper script for the MDAnalysis aligner that supports 
-                   multiprocessing.
+''' multialign.py: A wrapper script for the MDAnalysis structure aligner that
+                   supports multiprocessing.
 
     Copyright (C) 2022, The Institute of Computer Science-FORTH /
                         Ioannis-Rafail Tzonevrakis

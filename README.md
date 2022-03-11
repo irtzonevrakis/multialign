@@ -1,4 +1,4 @@
-# multialign.py: A wrapper script for the MDAnalysis aligner that supports multiprocessing.
+# multialign.py: A wrapper script for the MDAnalysis structure aligner that supports multiprocessing.
 
 # Requirements
 
@@ -20,7 +20,7 @@ find /path/to/decoys/ -name '*.pdb' > pdb.lst
 MKL_NUM_THREADS=1 /path/to/multialign.py --pdblist pdb.lst --outdir /path/to/aligned/decoys
 ```
 
-Replace MKL_NUM_THREADS with OPENBLAS_NUM_THREADS if your numpy uses openblas instead. In any case, the script should emit a warning if the environment has not been set up correctly.
+Replace `MKL_NUM_THREADS` with `OPENBLAS_NUM_THREADS` if your numpy uses openblas instead. In any case, the script should emit a warning if the environment has not been set up correctly.
 
 The number of threads can be customized using the `--num_threads` parameter. The default, `-1`, will use all available threads, as determined by calling `os.sched_getaffinity(0)`.
 
