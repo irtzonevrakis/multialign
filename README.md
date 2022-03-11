@@ -45,4 +45,4 @@ The number of threads can be customized using the `--num_threads` parameter. The
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 ```
 
-For more details, see the [LICENSE](LICENSE) file in this repository. For the licenses of the libraries used by this script, see the [LICENSE_COMPONENTS](LICENSE_COPONENTS) file.
+For more details, see the [LICENSE](LICENSE) file in this repository. For the licenses of the libraries used by this script, see the [LICENSE_COMPONENTS](LICENSE_COMPONENTS) file.
