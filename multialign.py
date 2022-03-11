@@ -32,7 +32,7 @@ get_rmsd = lambda mobile, ref: rmsd(mobile.select_atoms('name CA').positions,
                                     ref.select_atoms('name CA').positions)
 
 def align_parallel(fnames, ref, num_threads):
-    max_cpus = len(os.sched_getaffinity(0))
+    max_threads = len(os.sched_getaffinity(0))
     has_mkl = 'mkl' in ''.join(np.__config__.get_info('blas_mkl_info')\
                                ['libraries'])
     var_name = 'OPENBLAS_NUM_THREADS'
@@ -48,12 +48,12 @@ def align_parallel(fnames, ref, num_threads):
         print(f'WARN: Running with {var_name} != 1. Sub-optimal performance '+
               f'may ensue. We recommend re-running the script with {var_name}'+
               ' set to 1.')
-    if num_threads > max_cpus:
+    if num_threads > max_threads:
         print(f'WARN: Number of threads {num_threads} larger than maximum '+
-              f'alotted threads {max_cpus}. Setting to {max_cpus} instead.')
-        num_threads = max_cpus
+              f'alotted threads {max_threads}. Setting to {max_threads} instead.')
+        num_threads = max_threads
     if num_threads == -1:
-        num_threads = max_cpus
+        num_threads = max_threads
     print(f'Running with {num_threads} threads.')
     fnames = np.array(fnames)
     shmem = pymp.shared.array((len(fnames),), dtype=fnames.dtype)
