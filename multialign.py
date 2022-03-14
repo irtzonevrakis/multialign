@@ -33,8 +33,7 @@ get_rmsd = lambda mobile, ref: rmsd(mobile.select_atoms('name CA').positions,
 
 def align_parallel(fnames, ref, num_threads):
     max_threads = len(os.sched_getaffinity(0))
-    has_mkl = 'mkl' in ''.join(np.__config__.get_info('blas_mkl_info')\
-                               ['libraries'])
+    has_mkl = np.__config__.blas_mkl_info != {}
     var_name = 'OPENBLAS_NUM_THREADS'
     if has_mkl:
         var_name = 'MKL_NUM_THREADS'
